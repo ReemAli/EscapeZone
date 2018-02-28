@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+
+ <head>
+ <title>Authors page</title>
+    <meta charset="utf-8">
+     {% load static  %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>EscapeZone</title>
+  </head>
+
+
+	
+<body>
+<header>
+
+    <nav class="black">
+               <a href="/"><div class="logo">EscapeZone</div></a>
+                <ul>
+                  
+                   <li class="logo1"><a href="/home">Home</a></li>
+        
+                    <li class="logo1">
+                       
+                         <a class="dropbtn" href="/books">Books</a>
+                      
+                    </li>
+
+                    <li class="logo1">
+                 
+                        <a class="dropbtn" href="/authors">Author</a>
+                     
+                     </li>
+<div class="search">
+<li >
+       <form action="/escapeZone/search" method="GET">
+          <input type="text" name="s">
+          <input type="submit" value="Search" >
+      </form>
+
+</li>
+</div>
+
+    </ul>
+    </nav>
+</header>
+
+
+
+
+
+
+	<div class="divcenter2">
+		<p>Profile</p>
+		<img src="../images/avatar.png">
+		<p>Name: {{ username.username }}</p>
+		<p>Joined_date: {{ date_joined.date_joined }}</p>
+		</div>
+
+		<div>
+		<ul>
+			{% for read in r %}
+			 <li><a href="/escapeZone/book/{{ read.id }}">{{ read.book_name }}</a></li>
+			{% endfor %}
+		</ul> 
+		</div>
+
+		<div>
+		<ul>
+			{% for wish in w %}
+			 <li><a href="/escapeZone/book/{{ wish.id }}">wish.book_name</a></li>
+			{% endfor %}
+		</ul> 
+		</div>
+
+		<div>
+		<ul>
+			{% for fav in f %}
+			 <li><a href="/escapeZone/catagory/{{ fav.id }}">{{ fav.cat_name }}</a></li>
+			{% endfor %}
+		</ul>
+		</div>
+
+		<div>
+		<ul>
+			{% for follow in fa %}
+			 <li><a href="/escapeZone/author/{{ follow.id }}">{{ follow.author_name }}</a></li>
+			{% endfor %}
+		</ul>
+		</div>
+
+</body>
+</html>

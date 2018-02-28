@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+     {% load static  %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>EscapeZone</title>
+  </head>
+  <body>
+
+   <header>
+ <nav class="black">
+               <a href="/"><div class="logo">EscapeZone</div></a>
+                <ul>
+                  
+                   <li class="logo1"><a href="/escapeZone/home">Home</a></li>
+        
+ 
+                    <li class="logo1">
+                       
+                         <a class="dropbtn" href="/escapeZone/books">Books</a>
+                      
+                    </li>
+
+
+                    <li class="logo1">
+                 
+                        <a class="dropbtn" href="/escapeZone/authors">Author</a>
+                     
+                     </li>             
+    </ul>
+    </nav>
+
+    </header>
+
+    <div class="temp-container">
+     <div class="loginbox">
+      <h2>Login</h2>
+      <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+    
+      <button type="submit">Login</button>
+
+ <a href="/escapeZone/signup">
+ <button style="padding-left: 20px;" type="submit"> SignUp</button>
+ </a> 
+      </form>
+     
+     </div> 
+    </div>
+  </body>
+</html>

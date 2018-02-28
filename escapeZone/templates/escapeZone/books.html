@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+ <title>Books page</title>
+    <meta charset="utf-8">
+     {% load static  %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>EscapeZone</title>
+  </head>
+
+<body>
+
+
+  <header>
+ <nav class="black">
+               <a href="/"><div class="logo">EscapeZone</div></a>
+                <ul>
+                  
+                   <li class="logo1"><a href="/home">Home</a></li>
+        
+                    <li class="logo1">
+                       
+                         <a class="dropbtn" href="/books">Books</a>
+                      
+                    </li>
+
+                    <li class="logo1">
+                 
+                        <a class="dropbtn" href="/authors">Author</a>
+                     
+                     </li>
+<div class="search">
+<li >
+       <form action="/escapeZone/search" method="GET">
+          <input type="text" name="s">
+          <input type="submit" value="Search" >
+      </form>
+
+</li>
+</div>
+
+    </ul>
+    </nav>
+
+    </header>
+
+
+
+
+<div class="divcenter ">
+{% for bk in books %}
+<div class="d1" style="float:left;">
+   <a href="/escapeZone/book/{{ bk.id }}" ><p style="color:  #e75811 ">{{ bk.book_name }}</p></a>
+</div>
+<div class="d2" style="float:left;">
+    <a href="#" style="float: left;"><p style="color: red">{{ bk.book_author }}</p></a>
+</div>
+
+<div  style="float:left" class="d3">
+   <button style="float:left">read</button>
+      
+   <button>wish</button>
+</div>
+
+{% endfor %}
+</div> 
+
+
+
+
+
+</body>
+</html> 

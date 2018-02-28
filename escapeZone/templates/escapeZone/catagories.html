@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+ <title>Books page</title>
+    <meta charset="utf-8">
+     {% load static  %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>EscapeZone</title>
+  </head>
+
+<body>
+
+
+  <header>
+ <nav class="black">
+               <a href="/"><div class="logo">EscapeZone</div></a>
+                <ul>
+                  
+                   <li class="logo1"><a href="/home">Home</a></li>
+        
+                    <li class="logo1">
+                       
+                         <a class="dropbtn" href="/books">Books</a>
+                      
+                    </li>
+
+                    <li class="logo1">
+                 
+                        <a class="dropbtn" href="/authors">Author</a>
+                     
+                     </li>
+<div class="search">
+<li >
+       <form action="/escapeZone/search" method="GET">
+          <input type="text" name="s">
+          <input type="submit" value="Search" >
+      </form>
+
+</li>
+</div>
+
+    </ul>
+    </nav>
+
+    </header>
+
+
+
+
+{% for cat in cats %}
+<div class="divcenter5 " style="float:left;">
+<div class="d1" style="float:left;">
+   <a href="/escapeZone/catagory/{{ cat.id }}" ><p style="color:  #e75811 ">{{ cat.cat_name }}</p></a>
+</div>
+<form method="POST">
+  <div style="float:left" class="d3">
+  <input type="hidden" name="cat_id" value="{{ cat.id }}">
+   <button style="float:left" type="submit" name="request" value="favorite">favorite</button>
+  </div>
+</form>    
+<form method="POST">
+  <div style="float:left" class="d3">
+  <input type="hidden" name="auth_id" value="{{ auth.id }}">
+   <button style="float:left" type="submit" name="request" value="unfavorite">unfavorite</button>
+  </div>
+</form>
+
+
+{% endfor %}
+
+</div> 
+
+
+
+
+
+</body>
+</html> 

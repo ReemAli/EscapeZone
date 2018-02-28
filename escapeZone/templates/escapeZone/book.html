@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+     {% load static  %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+      <title>Goodreads | Layout Template</title>  
+</head>
+
+
+
+  <body>
+
+ <header>
+ <nav class="black">
+               <a href="/"><div class="logo">EscapeZone</div></a>
+                <ul>
+                  
+                   <li class="logo1"><a href="/home">Home</a></li>
+        
+                    <li class="logo1">
+                       
+                         <a class="dropbtn" href="/books">Books</a>
+                      
+                    </li>
+
+                    <li class="logo1">
+                 
+                        <a class="dropbtn" href="/authors">Author</a>
+                     
+                     </li>
+<div class="search">
+<li >
+       <form action="/escapeZone/search" method="GET">
+          <input type="text" name="s">
+          <input type="submit" value="Search" >
+      </form>
+
+</li>
+</div>
+    </ul>
+    </nav>
+
+    </header>
+<div class="divcenter2" >
+
+        <form method="GET">
+          <div class="div2">
+              <img src="/{{Book.pic}}" width="120px" height="150px">
+              </div>
+       <div class="div3" >
+              <p>Name: {{ book.book_name }}</p>
+              <a href="/Author/{{ Boook.Author.id }}">
+                <p>publishedBy: {{ book.book_author }}</p>
+              </a>
+              <p>publishedAt: {{ book.publishedAt }}</p>  
+            </div>
+              <form method="POST">
+              {% csrf_token %}
+              {% if read  == True %}
+
+
+                  <button type="submit" value="read" disabled> Read </button>
+              {% else %}
+                <button type="submit"  value="read">Read</button>
+              {% endif %}
+               
+              </form>
+              <form method="POST">
+              {% csrf_token %}
+              {% if  wish  == True %}
+                  <button type="submit" value="wish" disabled> added to wishlist </button>
+              {% else %}
+                <button type="submit"  value="wish" > Wish</button>
+              {% endif %}
+              </form>
+                    <div class="bio-text"><p>Description:</p><p>{{ book.desc }}</p></div>
+
+        </form>
+        </div>
+ </div>  
+  </body>
+</html>

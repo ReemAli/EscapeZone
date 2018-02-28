@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+       {% load static  %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+    <title>EscapeZone</title>
+  </head>
+  <body>
+      <header>
+ <nav class="black">
+               <a href="/"><div class="logo">EscapeZone</div></a>
+                <ul>
+                  
+                   <li class="logo1"><a href="/escapeZone/home">Home</a></li>
+        
+ 
+                    <li class="logo1">
+                       
+                         <a class="dropbtn" href="/escapeZone/books">Books</a>
+                      
+                    </li>
+
+
+                    <li class="logo1">
+                 
+                        <a class="dropbtn" href="/escapeZone/authors">Author</a>
+                     
+                     </li>
+
+                
+    </ul>
+    </nav>
+
+    </header>
+
+
+    <div class="SignUpbox">
+      <h1>Sign up</h1>
+      <div class="login-page">
+      <div class="form">
+        <form method="post" class="login-form">
+            {% csrf_token %}
+            {% for field in form %}
+            <p>
+              {{ field.label_tag }}<br>
+              {{ field }}
+              {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+              {% endfor %}
+            </p>
+            {% endfor %}
+            <input type="submit" value="SignUP">
+          </form> 
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

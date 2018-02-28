@@ -1,0 +1,108 @@
+<html>
+
+ <head>
+    <meta charset="utf-8">
+     {% load static  %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>EscapeZone</title>
+  </head>
+
+<body>
+
+ <header>
+ <nav class="black">
+               <a href="/"><div class="logo">EscapeZone</div></a>
+                <ul>
+                  
+                   <li class="logo1"><a href="/escapeZone/home">Home</a></li>
+        
+                    <li class="logo1">
+                       
+                         <a class="dropbtn" href="/escapeZone/books">Books</a>
+                      
+                    </li>
+
+                    <li class="logo1">
+                 
+                        <a class="dropbtn" href="/escapeZone/authors">Author</a>
+                     
+                     </li>
+<div class="search">
+<li >
+       <form action="/escapeZone/search" method="GET">
+          <input type="text" name="s">
+          <input type="submit" value="Search" >
+      </form>
+
+</li>
+</div>
+
+
+
+    </ul>
+    </nav>
+
+    </header>
+
+
+<div class="div10">
+  
+<p><a href="/escapeZone/profile">{{ user.username }}</a> </p>
+
+</div>
+
+
+
+<div class="divleft">
+    <div class="divtop">
+    <ol>
+           <h1>Top Ten Books</h1>
+        {% for item in books10 %}
+    
+            <li><a href="/escapezone/book/{{ item.id }}/">{{ item }}</a></li>
+        
+        {% endfor %}
+    </ol>
+    </div>
+    <div class="divBottom">
+      <ol>
+       <h1>Top Ten Authors</h1>
+      {% for item in authors10 %}
+            <li><a href="/escapezone/author/{{ item.id }}/">{{ item }}</a></li>
+      {% endfor %}
+       </ol>
+    </div>
+  </div>
+  <div class="divright">
+    
+  </div>
+   
+     {% for catagory in cats %}
+      <div style="margin-bottom: 50px">
+        <a href="/escapeZone/category/{{ cats.id }}">
+          AllCatagorties </a>
+        </div>
+      {% endfor %}
+
+
+    {% for book in books %}
+      <div style="margin-bottom: 50px">
+          <a href="/escapeZone/book">
+             AllBooks
+          </a>
+      </div>
+    {% endfor %}
+
+   
+    {% for author in authors %}
+      <div style="margin-bottom: 50px">
+          <a href="/escapeZone/author/">
+              AllAuthors
+          </a>
+      </div>
+    {% endfor %}
+
+   
+   
+    </body>
+</html>
